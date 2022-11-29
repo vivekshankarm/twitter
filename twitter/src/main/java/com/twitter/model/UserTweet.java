@@ -13,7 +13,8 @@ public class UserTweet {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String userTweet;
-	private String parentId;
+	private Integer parentId;
+	private Integer userId;
 	
 //	public UserTweet(String userTweet) {
 //		this.userTweet = userTweet;
@@ -26,13 +27,15 @@ public class UserTweet {
 	public Integer getId() {
 		return id;
 	}
-	public UserTweet(String userTweet, String parentId) {
+	public UserTweet(String userTweet, Integer parentId,Integer userId) {
 		this.userTweet = userTweet;
 		this.parentId = parentId;
+		this.userId = userId;
 	}
 	
-	public UserTweet(String userTweet) {
+	public UserTweet(String userTweet,Integer userId) {
 		this.userTweet = userTweet;
+		this.userId = userId;
 	}
 	
 	public void setId(Integer id) {
@@ -44,10 +47,10 @@ public class UserTweet {
 	public void setUserTweet(String userTweet) {
 		this.userTweet = userTweet;
 	}
-	public String getParent_id() {
+	public Integer getParent_id() {
 		return parentId;
 	}
-	public void setParent_id(String parent_id) {
+	public void setParent_id(Integer parent_id) {
 		this.parentId = parent_id;
 	}
 	

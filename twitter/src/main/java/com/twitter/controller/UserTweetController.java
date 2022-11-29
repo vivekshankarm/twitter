@@ -31,23 +31,28 @@ public class UserTweetController {
 //	}
 	
 	@RequestMapping("/userTweetAction")
-	public ModelAndView userTweet(@RequestParam("userTweet")String userTweet,@RequestParam("parentId")String parentId) {
+	public ModelAndView userTweet(@RequestParam("userTweet")String userTweet,@RequestParam("parentId")Integer parentId,@PathVariable("userId")Integer userId) {
 		
 		System.out.println("hit the userTweet method");
 		System.out.println("userTweet value is " + userTweet);
-		UserTweet userTweetObj = new UserTweet(userTweet);
+		UserTweet userTweetObj = new UserTweet(userTweet,userId);
 		userTweetRepo.save(userTweetObj);
 		ModelAndView mv = new ModelAndView("userHome");		
 		return mv;
 	}
 	
-	@RequestMapping("/userTweetAction/{comment}/{pk}")
+	@RequestMapping("/userTweetAction/{comment}/{pk}/{userId}")
 	@ResponseBody
-	public List<UserTweet> updateComment(@PathVariable("comment")String comment, @PathVariable("pk")String pk) {
+	public List<UserTweet> updateComment(@PathVariable("comment")String comment, @PathVariable("pk")Integer pk,@PathVariable("userId")Integer userId) {
 		System.out.println("comment " + comment);
 		System.out.println("pk " + pk);
 		
-		UserTweet userTweetObj = new UserTweet(comment,pk);
+		UserTweet userTweetObj = null;
+		
+		if(pk != null || pk == 0) 
+			userTweetObj = new UserTweet(comment,userId);
+		else
+			userTweetObj = new UserTweet(comment,pk,userId);
 		System.out.println("userTweetObj " + userTweetObj);
 		userTweetRepo.save(userTweetObj);
 		
