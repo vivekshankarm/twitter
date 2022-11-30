@@ -10,7 +10,7 @@
 	<form action="userLogin">
 		Name <input type = "text" name = "userName" required><br>
 		password <input type = "password" name = "password" required><br>
-		<input type = "hidden" name = "id" value  = "1">
+		<input type = "hidden" name = "id" value  = "0">
 		<input type ="submit">
 	</form>
 </body>

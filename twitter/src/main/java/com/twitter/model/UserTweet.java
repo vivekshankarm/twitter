@@ -47,15 +47,27 @@ public class UserTweet {
 	public void setUserTweet(String userTweet) {
 		this.userTweet = userTweet;
 	}
-	public Integer getParent_id() {
+
+	public Integer getParentId() {
 		return parentId;
 	}
-	public void setParent_id(Integer parent_id) {
-		this.parentId = parent_id;
+
+	public void setParentId(Integer parentId) {
+		this.parentId = parentId;
 	}
-	
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
 	@Override
 	public String toString() {
-		return "UserTweet [id=" + id + ", userTweet=" + userTweet + ", parentId=" + parentId + "]";
-	}	
+		return "UserTweet [id=" + id + ", userTweet=" + userTweet + ", parentId=" + parentId + ", userId=" + userId
+				+ "]";
+	}
+	
 }
