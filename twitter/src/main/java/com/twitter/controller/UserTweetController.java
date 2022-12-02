@@ -49,7 +49,7 @@ public class UserTweetController {
 		
 		UserTweet userTweetObj = null;
 		
-		if(pk != null || pk == 0) 
+		if(pk == null || pk == 0) 
 			userTweetObj = new UserTweet(comment,userId);
 		else
 			userTweetObj = new UserTweet(comment,pk,userId);
